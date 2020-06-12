@@ -1,0 +1,5 @@
+Proyecto 1 - Local Storage
+- El usuario podrá crear / eliminar / ver sus tweers en un listado.
+- Los tweets se almacenarán en Local Storage.
+- El usuario podrá agregar una cantidad ilimitada de tweets.
+- Al cargar la página los tweets deben cargarse de Local Storage, al eliminarse deben quitarse de Local Storage.
