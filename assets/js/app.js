@@ -1,7 +1,6 @@
 // Variables
 const listaTweets = document.getElementById('lista-tweets');
 
-
 // Event Listeners
 
 eventListeners();
@@ -46,6 +45,7 @@ function borrarTweet(e) {
     e.preventDefault();
     if(e.target.className === 'borrar-tweet') {
         e.target.parentElement.remove();
+        borrarTweetLocalStorage(e.target.parentElement.innerText);
     }     
 }
 
@@ -92,3 +92,21 @@ function obtenerTweetsLocalStorage() {
     return tweets;
 }
 
+// Eliminar tweet de local Storage
+function borrarTweetLocalStorage(tweet) {
+
+    let tweets, tweetBorrar;
+    // Elimina la X del Tweet
+    tweetBorrar = tweet.substring(0, tweet.length-1);
+
+    tweets = obtenerTweetsLocalStorage();
+
+    tweets.forEach(function(tweet, index) {
+        if(tweetBorrar === tweet) {
+            tweets.splice(index, 1);
+        }
+    });
+
+    localStorage.setItem('tweets', JSON.stringify(tweets));
+
+}
